@@ -1,0 +1,625 @@
+{
+  "departures": [
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 01:35Z",
+          "local": "2026-04-15 20:35-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKBO",
+          "iata": "BOG",
+          "name": "Bogotá",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 03:40Z",
+          "local": "2026-04-15 22:40-05:00"
+        },
+        "revisedTime": {
+          "utc": "2026-04-16 03:30Z",
+          "local": "2026-04-15 22:30-05:00"
+        },
+        "terminal": "1",
+        "baggageBelt": "08",
+        "quality": [
+          "Basic",
+          "Live"
+        ]
+      },
+      "number": "LA 4269",
+      "status": "Expected",
+      "codeshareStatus": "IsOperator",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 02:28Z",
+          "local": "2026-04-15 21:28-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKCL",
+          "iata": "CLO",
+          "name": "Santiago de Cali",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 04:28Z",
+          "local": "2026-04-15 23:28-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4357",
+      "status": "Unknown",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 02:30Z",
+          "local": "2026-04-15 21:30-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKBO",
+          "iata": "BOG",
+          "name": "Bogotá",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 04:35Z",
+          "local": "2026-04-15 23:35-05:00"
+        },
+        "revisedTime": {
+          "utc": "2026-04-16 04:16Z",
+          "local": "2026-04-15 23:16-05:00"
+        },
+        "terminal": "1",
+        "baggageBelt": "10",
+        "quality": [
+          "Basic",
+          "Live"
+        ]
+      },
+      "number": "AV 9781",
+      "status": "Expected",
+      "codeshareStatus": "IsOperator",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "Avianca",
+        "iata": "AV",
+        "icao": "AVA"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 07:47Z",
+          "local": "2026-04-16 02:47-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKCL",
+          "iata": "CLO",
+          "name": "Santiago de Cali",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 09:47Z",
+          "local": "2026-04-16 04:47-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4461",
+      "status": "Unknown",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 12:05Z",
+          "local": "2026-04-16 07:05-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKPV",
+          "iata": "PVA",
+          "name": "Providencia",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 12:42Z",
+          "local": "2026-04-16 07:42-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "9R 8806",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "ATR 42-300"
+      },
+      "airline": {
+        "name": "SATENA",
+        "iata": "9R",
+        "icao": "NSE"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 12:15Z",
+          "local": "2026-04-16 07:15-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKCG",
+          "iata": "CTG",
+          "name": "Cartagena de Indias",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 13:35Z",
+          "local": "2026-04-16 08:35-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4368",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 12:45Z",
+          "local": "2026-04-16 07:45-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKBO",
+          "iata": "BOG",
+          "name": "Bogotá",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 14:55Z",
+          "local": "2026-04-16 09:55-05:00"
+        },
+        "revisedTime": {
+          "utc": "2026-04-16 14:45Z",
+          "local": "2026-04-16 09:45-05:00"
+        },
+        "terminal": "1",
+        "quality": [
+          "Basic",
+          "Live"
+        ]
+      },
+      "number": "LA 4273",
+      "status": "Expected",
+      "codeshareStatus": "IsOperator",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "scheduledTime": {
+          "utc": "2026-04-16 13:01Z",
+          "local": "2026-04-16 08:01-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "airport": {
+          "icao": "SKCL",
+          "iata": "CLO",
+          "name": "Santiago de Cali",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 15:08Z",
+          "local": "2026-04-16 10:08-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "JA 5595",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "JetSMART",
+        "iata": "JA",
+        "icao": "JAT"
+      }
+    }
+  ],
+  "arrivals": [
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKBO",
+          "iata": "BOG",
+          "name": "Bogotá",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-15 23:25Z",
+          "local": "2026-04-15 18:25-05:00"
+        },
+        "revisedTime": {
+          "utc": "2026-04-15 23:23Z",
+          "local": "2026-04-15 18:23-05:00"
+        },
+        "terminal": "1",
+        "gate": "D5",
+        "quality": [
+          "Basic",
+          "Live"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 01:35Z",
+          "local": "2026-04-15 20:35-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "AV 9780",
+      "status": "Expected",
+      "codeshareStatus": "IsOperator",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "Avianca",
+        "iata": "AV",
+        "icao": "AVA"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKBQ",
+          "iata": "BAQ",
+          "name": "Barranquilla",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 00:21Z",
+          "local": "2026-04-15 19:21-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 01:46Z",
+          "local": "2026-04-15 20:46-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4381",
+      "status": "Unknown",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKCL",
+          "iata": "CLO",
+          "name": "Santiago de Cali",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 05:10Z",
+          "local": "2026-04-16 00:10-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 07:05Z",
+          "local": "2026-04-16 02:05-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4460",
+      "status": "Unknown",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKBO",
+          "iata": "BOG",
+          "name": "Bogotá",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 09:15Z",
+          "local": "2026-04-16 04:15-05:00"
+        },
+        "revisedTime": {
+          "utc": "2026-04-16 09:15Z",
+          "local": "2026-04-16 04:15-05:00"
+        },
+        "terminal": "1",
+        "gate": "C9",
+        "quality": [
+          "Basic",
+          "Live"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 11:30Z",
+          "local": "2026-04-16 06:30-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4276",
+      "status": "Expected",
+      "codeshareStatus": "IsOperator",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKCL",
+          "iata": "CLO",
+          "name": "Santiago de Cali",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 10:00Z",
+          "local": "2026-04-16 05:00-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 11:55Z",
+          "local": "2026-04-16 06:55-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4356",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKRG",
+          "iata": "MDE",
+          "name": "Rionegro",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 10:30Z",
+          "local": "2026-04-16 05:30-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 12:21Z",
+          "local": "2026-04-16 07:21-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "JA 5458",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "JetSMART",
+        "iata": "JA",
+        "icao": "JAT"
+      }
+    },
+    {
+      "departure": {
+        "airport": {
+          "icao": "SKRG",
+          "iata": "MDE",
+          "name": "Rionegro",
+          "countryCode": "co",
+          "timeZone": "America/Bogota"
+        },
+        "scheduledTime": {
+          "utc": "2026-04-16 10:57Z",
+          "local": "2026-04-16 05:57-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "arrival": {
+        "scheduledTime": {
+          "utc": "2026-04-16 12:47Z",
+          "local": "2026-04-16 07:47-05:00"
+        },
+        "quality": [
+          "Basic"
+        ]
+      },
+      "number": "LA 4316",
+      "status": "Expected",
+      "codeshareStatus": "Unknown",
+      "isCargo": false,
+      "aircraft": {
+        "model": "Airbus A320"
+      },
+      "airline": {
+        "name": "LATAM",
+        "iata": "LA",
+        "icao": "LAN"
+      }
+    }
+  ]
+}

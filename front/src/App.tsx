@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Info } from 'lucide-react';
+import { Info, Languages } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import translations from '../i18n.json';
 
 interface Flight {
   id: string;
@@ -10,21 +11,27 @@ interface Flight {
   city: string;
   scheduledTime: string;
   estimatedTime: string;
-  status: 'Scheduled' | 'Boarding' | 'Departed' | 'Delayed' | 'Landed' | 'Cancelled' | 'In Air' | 'Final Call';
+  status: string;
   gate: string;
 }
 
-interface Notification {
-  id: string;
-  message: string;
-  flightId: string;
-  type: 'info' | 'warning';
-}
+type Language = 'en' | 'es' | 'fr' | 'zh';
 
 export default function App() {
   const [flights, setFlights] = useState<Flight[]>([]);
-  const [notifications, setNotifications] = useState<Notification[]>([]);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [lang, setLang] = useState<Language>('es');
+
+  // Simple translation helper
+  const t = (key: string) => {
+    const section = translations[lang] as Record<string, string>;
+    return section[key] || key;
+  };
+
+  const getStatusLabel = (status: string) => {
+    const key = `status_` + status.toLowerCase().replace(/\s+/g, '_');
+    return t(key);
+  };
 
   // Clock tick
   useEffect(() => {
@@ -32,31 +39,23 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // SSE connection
-  useEffect(() => {
-    const eventSource = new EventSource('/api/flights/stream');
-
-    eventSource.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      
-      if (data.type === 'init') {
+  // API Call
+  const fetchFlights = async () => {
+    try {
+      const res = await fetch('/api/flights');
+      const data = await res.json();
+      if (data.flights) {
         setFlights(data.flights);
-      } else if (data.type === 'update') {
-        setFlights((prev) => 
-          prev.map((f) => (f.id === data.flight.id ? data.flight : f))
-        );
-        
-        if (data.notification) {
-          setNotifications((prev) => {
-            const newNotifs = [...prev, data.notification];
-            // Keep only the last 3 notifications
-            return newNotifs.slice(-3);
-          });
-        }
       }
-    };
+    } catch (err) {
+      console.error("Error fetching flights:", err);
+    }
+  };
 
-    return () => eventSource.close();
+  useEffect(() => {
+    fetchFlights();
+    const interval = setInterval(fetchFlights, 30000); // Poll every 30s
+    return () => clearInterval(interval);
   }, []);
 
   const arrivals = flights.filter(f => f.type === 'arrival');
@@ -67,23 +66,36 @@ export default function App() {
       {/* Header */}
       <header className="px-10 py-10 md:px-16 flex justify-between items-end border-b border-theme-border shrink-0">
         <div className="flex flex-col">
-          <h1 className="font-serif font-light text-[32px] tracking-[2px] uppercase text-theme-accent">The Grand Horizon</h1>
-          <span className="text-[12px] tracking-[4px] uppercase mt-1.5 text-theme-muted">Concierge Digital • Vuelos en tiempo real</span>
+          <h1 className="font-serif font-light text-[32px] tracking-[2px] uppercase text-theme-accent">Orbit by Koresis</h1>
+          <span className="text-[12px] tracking-[4px] uppercase mt-1.5 text-theme-muted">{t('subtitle')}</span>
         </div>
-        <div className="text-right">
-          <div className="text-[48px] font-extralight leading-none">
-            {currentTime.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
+        <div className="flex items-center gap-10">
+          <div className="flex gap-2">
+            {(['es', 'en', 'fr', 'zh'] as Language[]).map(l => (
+              <button 
+                key={l}
+                onClick={() => setLang(l)}
+                className={`text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-sm transition-colors ${lang === l ? 'bg-theme-accent text-white' : 'text-theme-muted hover:bg-theme-border'}`}
+              >
+                {l}
+              </button>
+            ))}
           </div>
-          <div className="text-[14px] uppercase tracking-[1px] text-theme-muted mt-2">
-            {currentTime.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' })}
+          <div className="text-right">
+            <div className="text-[48px] font-extralight leading-none">
+              {currentTime.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
+            </div>
+            <div className="text-[14px] uppercase tracking-[1px] text-theme-muted mt-2">
+              {currentTime.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', { weekday: 'long', day: 'numeric', month: 'long' })}
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Board */}
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-10 px-10 md:px-16 pt-8 overflow-hidden">
-        <FlightBoard title="Llegadas / Arrivals" flights={arrivals} type="arrival" />
-        <FlightBoard title="Salidas / Departures" flights={departures} type="departure" />
+        <FlightBoard title={t('panel_arrivals')} flights={arrivals} getStatusLabel={getStatusLabel} />
+        <FlightBoard title={t('panel_departures')} flights={departures} getStatusLabel={getStatusLabel} />
       </main>
 
       {/* Notifications Footer */}
@@ -92,25 +104,8 @@ export default function App() {
           <Info className="w-5 h-5 text-theme-muted shrink-0" />
           <div className="w-full overflow-hidden">
             <div className="animate-marquee flex gap-16">
-              {notifications.length > 0 ? (
-                notifications.map((n) => (
-                  <span key={n.id} className={`text-[12px] ${n.type === 'warning' ? 'text-status-delayed' : 'text-theme-muted'}`}>
-                    {n.message}
-                  </span>
-                ))
-              ) : (
-                <span className="text-[12px] text-theme-muted">Bienvenido a The Grand Horizon. La información de vuelos se actualiza en tiempo real.</span>
-              )}
-              {/* Duplicate for seamless loop */}
-              {notifications.length > 0 ? (
-                notifications.map((n) => (
-                  <span key={n.id + '-dup'} className={`text-[12px] ${n.type === 'warning' ? 'text-status-delayed' : 'text-theme-muted'}`}>
-                    {n.message}
-                  </span>
-                ))
-              ) : (
-                <span className="text-[12px] text-theme-muted">Bienvenido a The Grand Horizon. La información de vuelos se actualiza en tiempo real.</span>
-              )}
+              <span className="text-[12px] text-theme-muted">{t('welcome_msg')}</span>
+              <span className="text-[12px] text-theme-muted">{t('welcome_msg')}</span>
             </div>
           </div>
         </div>
@@ -119,7 +114,7 @@ export default function App() {
   );
 }
 
-function FlightBoard({ title, flights, type }: { title: string, flights: Flight[], type: 'arrival' | 'departure' }) {
+function FlightBoard({ title, flights, getStatusLabel }: { title: string, flights: Flight[], getStatusLabel: (s: string) => string }) {
   return (
     <section className="flex flex-col h-full overflow-hidden">
       <div className="text-[12px] uppercase tracking-[2px] text-theme-accent mb-6 flex items-center after:content-[''] after:flex-1 after:h-px after:bg-theme-border after:ml-4 shrink-0">
@@ -127,9 +122,9 @@ function FlightBoard({ title, flights, type }: { title: string, flights: Flight[
       </div>
       <div className="flex-1 overflow-y-auto pr-2">
         <div className="w-full flex flex-col">
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {flights.map((flight) => (
-              <FlightRow key={flight.id} flight={flight} />
+              <FlightRow key={flight.id} flight={flight} getStatusLabel={getStatusLabel} />
             ))}
           </AnimatePresence>
         </div>
@@ -138,7 +133,7 @@ function FlightBoard({ title, flights, type }: { title: string, flights: Flight[
   );
 }
 
-function FlightRow({ flight }: { flight: Flight; key?: React.Key }) {
+function FlightRow({ flight, getStatusLabel }: { flight: Flight; getStatusLabel: (s: string) => string }) {
   const getStatusClasses = (status: string) => {
     switch (status) {
       case 'Boarding':
@@ -149,23 +144,11 @@ function FlightRow({ flight }: { flight: Flight; key?: React.Key }) {
         return 'bg-status-delayed/10 text-status-delayed';
       case 'Landed':
       case 'Departed':
-        return 'bg-status-landed/10 text-status-landed';
       case 'In Air':
         return 'bg-status-landed/10 text-status-landed';
       default:
         return 'bg-status-on-time/10 text-status-on-time';
     }
-  };
-
-  const statusTranslations: Record<string, string> = {
-    'Scheduled': 'En Hora',
-    'Boarding': 'Embarcando',
-    'Departed': 'Despegó',
-    'Delayed': 'Retrasado',
-    'Landed': 'Aterrizado',
-    'Cancelled': 'Cancelado',
-    'In Air': 'En Vuelo',
-    'Final Call': 'Último Aviso'
   };
 
   return (
@@ -188,7 +171,7 @@ function FlightRow({ flight }: { flight: Flight; key?: React.Key }) {
       </div>
       <div className="w-[120px] text-right shrink-0">
         <span className={`inline-block px-3 py-1.5 rounded-[20px] text-[10px] font-bold uppercase tracking-[1px] ${getStatusClasses(flight.status)}`}>
-          {statusTranslations[flight.status] || flight.status}
+          {getStatusLabel(flight.status)}
         </span>
       </div>
     </motion.div>

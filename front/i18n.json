@@ -1,0 +1,62 @@
+{
+  "en": {
+    "subtitle": "Concierge Digital • Real-Time Flights",
+    "panel_arrivals": "Arrivals",
+    "panel_departures": "Departures",
+    "welcome_msg": "Welcome to Orbit by Koresis. Flight information is updated in real time. ",
+    "status_unknown": "Unknown",
+    "status_scheduled": "On Time",
+    "status_boarding": "Boarding",
+    "status_final_call": "Final Call",
+    "status_departed": "Departed",
+    "status_delayed": "Delayed",
+    "status_in_air": "In Air",
+    "status_landed": "Landed",
+    "status_cancelled": "Cancelled"
+  },
+  "es": {
+    "subtitle": "Concierge Digital • Vuelos en tiempo real",
+    "panel_arrivals": "Llegadas",
+    "panel_departures": "Salidas",
+    "welcome_msg": "Bienvenido a Orbit by Koresis. La información de vuelos se actualiza en tiempo real. ",
+    "status_unknown": "Desconocido",
+    "status_scheduled": "En Hora",
+    "status_boarding": "Embarcando",
+    "status_final_call": "Último Aviso",
+    "status_departed": "Despegó",
+    "status_delayed": "Retrasado",
+    "status_in_air": "En Vuelo",
+    "status_landed": "Aterrizado",
+    "status_cancelled": "Cancelado"
+  },
+  "fr": {
+    "subtitle": "Conciergerie Numérique • Vols en Temps Réel",
+    "panel_arrivals": "Arrivées",
+    "panel_departures": "Départs",
+    "welcome_msg": "Bienvenue chez Orbit by Koresis. Les informations sur les vols sont mises à jour en temps réel. ",
+    "status_unknown": "Inconnu",
+    "status_scheduled": "À l'heure",
+    "status_boarding": "Embarquement",
+    "status_final_call": "Dernier Appel",
+    "status_departed": "Parti",
+    "status_delayed": "Retardé",
+    "status_in_air": "En Vol",
+    "status_landed": "Atterri",
+    "status_cancelled": "Annulé"
+  },
+  "zh": {
+    "subtitle": "数字礼宾 • 实时航班",
+    "panel_arrivals": "到达",
+    "panel_departures": "出发",
+    "welcome_msg": "欢迎来到 Orbit by Koresis。航班信息实时更新。 ",
+    "status_unknown": "未知",
+    "status_scheduled": "准时",
+    "status_boarding": "登机中",
+    "status_final_call": "最终登机",
+    "status_departed": "已起飞",
+    "status_delayed": "延误",
+    "status_in_air": "飞行中",
+    "status_landed": "已降落",
+    "status_cancelled": "已取消"
+  }
+}
