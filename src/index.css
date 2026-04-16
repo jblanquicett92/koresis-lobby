@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Georgia', serif;
+  --font-mono: monospace;
+  
+  --color-theme-bg: #F9F7F2;
+  --color-theme-accent: #A68966;
+  --color-theme-main: #1A1A1A;
+  --color-theme-muted: #757575;
+  --color-theme-border: #E0DDD5;
+  
+  --color-status-on-time: #2D6A4F;
+  --color-status-delayed: #BC4749;
+  --color-status-landed: #457B9D;
+}
+
+body {
+  background-color: var(--color-theme-bg);
+  color: var(--color-theme-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for the flight lists */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-theme-border);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-theme-muted);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
